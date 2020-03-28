@@ -1,3 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Autobus" xmlns:tns="http://www.example.org/Autobus" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.servicio.mx/autobus"
+	xmlns:tns="http://www.servicio.mx/autobus"
+	elementFormDefault="qualified">
+
+	<element name="ConsultarViajesRequest">
+		<complexType>
+			<sequence>
+				<element name="origen" type="string"></element>
+				<element name="destino" type="string"></element>
+				<element name="fecha" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ComprarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string"></element>
+				<element name="asiento" type="string"></element>
+				<element name="viajero" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ModificarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="CancelarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ConsultarViajesResponse">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string"></element>
+				<element name="precio" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ComprarBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="ModificarBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="origen" type="string"></element>
+				<element name="destino" type="string"></element>
+				<element name="viajero" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="CancelarBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="confirmacion" type="string"></element>
+			</sequence>
+		</complexType>
+	</element>
 </schema>
