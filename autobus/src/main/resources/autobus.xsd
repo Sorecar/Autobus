@@ -4,7 +4,7 @@
 	xmlns:tns="http://www.servicio.com/autobus"
 	elementFormDefault="qualified">
 
-	<element name="ConsultarViajesRequest">
+	<element name="ConsultarViajeRequest">
 		<complexType>
 			<sequence>
 				<element name="origen" type="string"/>
@@ -13,58 +13,108 @@
 			</sequence>
 		</complexType>
 	</element>
-	<element name="ComprarBoletoRequest">
+	<element name="ConsultarViajeResponse">
 		<complexType>
 			<sequence>
-				<element name="idViaje" type="string"></element> 
-				<element name="asiento" type="string"></element>
-				<element name="viajero" type="string"></element>
+				<element name="idViaje" type="string"/>
+				<element name="Hora" type="string"/>
+				<element name="Precio" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="SeleccionarViajeRequest">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="SeleccionarViajeResponse">
+		<complexType>
+			<sequence>
+				<element name="AsientosDisponibles" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="SeleccionarAsientoRequest">
+		<complexType>
+			<sequence>
+				<element name="Asiento" type="string"/>
+				<element name="NomPasajero" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="SeleccionarAsientoResponse">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"/>
+				<element name="Origen" type="string"/>
+				<element name="Destino" type="string"/>
+				<element name="Fecha" type="string"/>
+				<element name="Hora" type="string"/>
+				<element name="Precio" type="string"/>
+				<element name="NomPasajero" type="string"/>
+				<element name="Asiento" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="VerBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	<element name="VerBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="string"/>
+				<element name="Origen" type="string"/>
+				<element name="Destino" type="string"/>
+				<element name="Fecha" type="string"/>
+				<element name="Hora" type="string"/>
+				<element name="Precio" type="string"/>
+				<element name="NomPasajero" type="string"/>
+				<element name="Asiento" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
 	<element name="ModificarBoletoRequest">
 		<complexType>
 			<sequence>
-				<element name="idBoleto" type="string"></element>
-			</sequence>
-		</complexType>
-	</element>
-	<element name="CancelarBoletoRequest">
-		<complexType>
-			<sequence>
-				<element name="idBoleto" type="string"></element>
-			</sequence>
-		</complexType>
-	</element>
-	<element name="ConsultarViajesResponse">
-		<complexType>
-			<sequence>
-				<element name="idViaje" type="string"></element>
-				<element name="precio" type="string"></element>
-			</sequence>
-		</complexType>
-	</element>
-	<element name="ComprarBoletoResponse">
-		<complexType>
-			<sequence>
-				<element name="idBoleto" type="string"></element>
+				<element name="idBoleto" type="string"/>
+				<element name="NomPasajero" type="string"/>
+				<element name="Asiento" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
 	<element name="ModificarBoletoResponse">
 		<complexType>
 			<sequence>
-				<element name="origen" type="string"></element>
-				<element name="destino" type="string"></element>
-				<element name="viajero" type="string"></element>
+				<element name="idBoleto" type="string"/>
+				<element name="Origen" type="string"/>
+				<element name="Destino" type="string"/>
+				<element name="Fecha" type="string"/>
+				<element name="Hora" type="string"/>
+				<element name="Precio" type="string"/>
+				<element name="NomPasajero" type="string"/>
+				<element name="Asiento" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
-	<element name="CancelarBoletoResponse">
+		<element name="CancelarBoletoRequest">
 		<complexType>
 			<sequence>
-				<element name="confirmacion" type="string"></element>
+				<element name="idBoleto" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
+		<element name="CancelarBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="CheckOut" type="string"/>
+			</sequence>
+		</complexType>
+	</element>
+	
 </schema>
