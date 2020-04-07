@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.07 a las 04:10:13 PM CDT 
+// Generado el: 2020.04.07 a las 05:47:55 PM CDT 
 //
 
 
@@ -28,13 +28,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Origen" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Destino" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Fecha" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         &lt;element name="Hora" type="{http://www.w3.org/2001/XMLSchema}time"/>
- *         &lt;element name="Precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="NomPasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="origen" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="destino" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/>
+ *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}time"/>
+ *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="nomPasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -59,21 +59,19 @@ public class ModificarBoletoResponse {
 
     @XmlElement(required = true)
     protected String idBoleto;
-    @XmlElement(name = "Origen", required = true)
+    @XmlElement(required = true)
     protected String origen;
-    @XmlElement(name = "Destino", required = true)
+    @XmlElement(required = true)
     protected String destino;
-    @XmlElement(name = "Fecha", required = true)
+    @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar fecha;
-    @XmlElement(name = "Hora", required = true)
+    @XmlElement(required = true)
     @XmlSchemaType(name = "time")
     protected XMLGregorianCalendar hora;
-    @XmlElement(name = "Precio")
     protected int precio;
-    @XmlElement(name = "NomPasajero", required = true)
+    @XmlElement(required = true)
     protected String nomPasajero;
-    @XmlElement(name = "Asiento")
     protected int asiento;
 
     /**

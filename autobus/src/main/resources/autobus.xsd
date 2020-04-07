@@ -17,8 +17,11 @@
 		<complexType>
 			<sequence>
 				<element name="idViaje" type="string"/>
-				<element name="Hora" type="time"/>
-				<element name="Precio" type="int"/>
+				<element name="origen" type="string"/>
+				<element name="destino" type="string"/>
+				<element name="fecha" type="date"/>
+				<element name="hora" type="time"/>
+				<element name="precio" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -32,15 +35,15 @@
 	<element name="SeleccionarViajeResponse">
 		<complexType>
 			<sequence>
-				<element name="AsientosDisponibles" type="int"/>
+				<element name="asientosDisponibles" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
 	<element name="SeleccionarAsientoRequest">
 		<complexType>
 			<sequence>
-				<element name="Asiento" type="int"/>
-				<element name="NomPasajero" type="string"/>
+				<element name="asiento" type="int"/>
+				<element name="nomPasajero" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -48,13 +51,13 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="string"/>
-				<element name="Origen" type="string"/>
-				<element name="Destino" type="string"/>
-				<element name="Fecha" type="date"/>
-				<element name="Hora" type="time"/>
-				<element name="Precio" type="int"/>
-				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="int"/>
+				<element name="origen" type="string"/>
+				<element name="destino" type="string"/>
+				<element name="fecha" type="date"/>
+				<element name="hora" type="time"/>
+				<element name="precio" type="int"/>
+				<element name="nomPasajero" type="string"/>
+				<element name="asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -69,13 +72,13 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="string"/>
-				<element name="Origen" type="string"/>
-				<element name="Destino" type="string"/>
-				<element name="Fecha" type="string"/>
-				<element name="Hora" type="string"/>
-				<element name="Precio" type="string"/>
-				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="string"/>
+				<element name="origen" type="string"/>
+				<element name="destino" type="string"/>
+				<element name="fecha" type="date"/>
+				<element name="hora" type="time"/>
+				<element name="precio" type="int"/>
+				<element name="nomPasajero" type="string"/>
+				<element name="asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -83,8 +86,8 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="string"/>
-				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="string"/>
+				<element name="nomPasajero" type="string"/>
+				<element name="asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -92,13 +95,13 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="string"/>
-				<element name="Origen" type="string"/>
-				<element name="Destino" type="string"/>
-				<element name="Fecha" type="date"/>
-				<element name="Hora" type="time"/>
-				<element name="Precio" type="int"/>
-				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="int"/>
+				<element name="origen" type="string"/>
+				<element name="destino" type="string"/>
+				<element name="fecha" type="date"/>
+				<element name="hora" type="time"/>
+				<element name="precio" type="int"/>
+				<element name="nomPasajero" type="string"/>
+				<element name="asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -112,7 +115,7 @@
 		<element name="CancelarBoletoResponse">
 		<complexType>
 			<sequence>
-				<element name="CheckOut" type="string"/>
+				<element name="checkOut" type="string"/>
 			</sequence>
 		</complexType>
 	</element>

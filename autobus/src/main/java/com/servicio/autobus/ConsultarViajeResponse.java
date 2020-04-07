@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.07 a las 04:10:13 PM CDT 
+// Generado el: 2020.04.07 a las 05:47:55 PM CDT 
 //
 
 
@@ -28,8 +28,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="Hora" type="{http://www.w3.org/2001/XMLSchema}time"/>
- *         &lt;element name="Precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="origen" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="destino" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/>
+ *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}time"/>
+ *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,6 +44,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idViaje",
+    "origen",
+    "destino",
+    "fecha",
     "hora",
     "precio"
 })
@@ -49,10 +55,16 @@ public class ConsultarViajeResponse {
 
     @XmlElement(required = true)
     protected String idViaje;
-    @XmlElement(name = "Hora", required = true)
+    @XmlElement(required = true)
+    protected String origen;
+    @XmlElement(required = true)
+    protected String destino;
+    @XmlElement(required = true)
+    @XmlSchemaType(name = "date")
+    protected XMLGregorianCalendar fecha;
+    @XmlElement(required = true)
     @XmlSchemaType(name = "time")
     protected XMLGregorianCalendar hora;
-    @XmlElement(name = "Precio")
     protected int precio;
 
     /**
@@ -77,6 +89,78 @@ public class ConsultarViajeResponse {
      */
     public void setIdViaje(String value) {
         this.idViaje = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad origen.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getOrigen() {
+        return origen;
+    }
+
+    /**
+     * Define el valor de la propiedad origen.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setOrigen(String value) {
+        this.origen = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad destino.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDestino() {
+        return destino;
+    }
+
+    /**
+     * Define el valor de la propiedad destino.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDestino(String value) {
+        this.destino = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fecha.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getFecha() {
+        return fecha;
+    }
+
+    /**
+     * Define el valor de la propiedad fecha.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setFecha(XMLGregorianCalendar value) {
+        this.fecha = value;
     }
 
     /**
