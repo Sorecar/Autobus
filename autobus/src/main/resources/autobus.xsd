@@ -9,7 +9,7 @@
 			<sequence>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="string"/>
+				<element name="fecha" type="date"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -17,8 +17,8 @@
 		<complexType>
 			<sequence>
 				<element name="idViaje" type="string"/>
-				<element name="Hora" type="string"/>
-				<element name="Precio" type="string"/>
+				<element name="Hora" type="time"/>
+				<element name="Precio" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -32,14 +32,14 @@
 	<element name="SeleccionarViajeResponse">
 		<complexType>
 			<sequence>
-				<element name="AsientosDisponibles" type="string"/>
+				<element name="AsientosDisponibles" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
 	<element name="SeleccionarAsientoRequest">
 		<complexType>
 			<sequence>
-				<element name="Asiento" type="string"/>
+				<element name="Asiento" type="int"/>
 				<element name="NomPasajero" type="string"/>
 			</sequence>
 		</complexType>
@@ -50,11 +50,11 @@
 				<element name="idBoleto" type="string"/>
 				<element name="Origen" type="string"/>
 				<element name="Destino" type="string"/>
-				<element name="Fecha" type="string"/>
-				<element name="Hora" type="string"/>
-				<element name="Precio" type="string"/>
+				<element name="Fecha" type="date"/>
+				<element name="Hora" type="time"/>
+				<element name="Precio" type="int"/>
 				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="string"/>
+				<element name="Asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -94,11 +94,11 @@
 				<element name="idBoleto" type="string"/>
 				<element name="Origen" type="string"/>
 				<element name="Destino" type="string"/>
-				<element name="Fecha" type="string"/>
-				<element name="Hora" type="string"/>
-				<element name="Precio" type="string"/>
+				<element name="Fecha" type="date"/>
+				<element name="Hora" type="time"/>
+				<element name="Precio" type="int"/>
 				<element name="NomPasajero" type="string"/>
-				<element name="Asiento" type="string"/>
+				<element name="Asiento" type="int"/>
 			</sequence>
 		</complexType>
 	</element>

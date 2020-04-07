@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.07 a las 12:57:01 PM CDT 
+// Generado el: 2020.04.07 a las 04:10:13 PM CDT 
 //
 
 
@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="AsientosDisponibles" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="AsientosDisponibles" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -41,30 +41,22 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "SeleccionarViajeResponse")
 public class SeleccionarViajeResponse {
 
-    @XmlElement(name = "AsientosDisponibles", required = true)
-    protected String asientosDisponibles;
+    @XmlElement(name = "AsientosDisponibles")
+    protected int asientosDisponibles;
 
     /**
      * Obtiene el valor de la propiedad asientosDisponibles.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getAsientosDisponibles() {
+    public int getAsientosDisponibles() {
         return asientosDisponibles;
     }
 
     /**
      * Define el valor de la propiedad asientosDisponibles.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setAsientosDisponibles(String value) {
+    public void setAsientosDisponibles(int value) {
         this.asientosDisponibles = value;
     }
 

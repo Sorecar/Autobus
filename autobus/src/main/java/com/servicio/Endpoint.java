@@ -28,8 +28,8 @@ public class Endpoint {
 	public ConsultarViajeResponse getConsultarViaje(@RequestPayload ConsultarViajeRequest peticion) {
 		ConsultarViajeResponse respuesta = new ConsultarViajeResponse();
 		respuesta.setIdViaje("idViaje: "+ "[idViaje]");
-		respuesta.setHora("Hora: " + "[Hora]");
-		respuesta.setPrecio("Precio: " + "[Precio]");
+		respuesta.setHora(null);;
+		respuesta.setPrecio(0);;
 		return respuesta;
 	}
 	//Al seleeccionar un viaje se realiza una peticion donde manda el idViaje
@@ -38,7 +38,7 @@ public class Endpoint {
 	@ResponsePayload
 	public SeleccionarViajeResponse getSeleccionarViaje(@RequestPayload SeleccionarViajeRequest peticion) {
 		SeleccionarViajeResponse respuesta = new SeleccionarViajeResponse();
-		respuesta.setAsientosDisponibles("Asientos"+ "Regresar lista de asientos disponibles");
+		respuesta.setAsientosDisponibles(0); //Se regresara de la base de datos el numero de asientos disponibles del viaje
 		return respuesta;
 	}
 	//Al seleccionar el asiento, tambien se debe de asignar un nombre al pasajero
@@ -51,11 +51,11 @@ public class Endpoint {
 		respuesta.setIdBoleto("IdBoleto:"+"[IdBoleto]");
 		respuesta.setOrigen("Origen:" + "[Origen]");
 		respuesta.setDestino("Destino"+"[Destion]");
-		respuesta.setFecha("Fecha"+"[Fecha]");
-		respuesta.setHora("Hora:"+"[Hora]");
-		respuesta.setPrecio("Precio:"+"[Precio]");
+		respuesta.setFecha(null);
+		respuesta.setHora(null);
+		respuesta.setPrecio(0);
 		respuesta.setNomPasajero("Pasajero:"+"[NomPasajero]");
-		respuesta.setAsiento("Asiento:"+"[Asiento]");
+		respuesta.setAsiento(0);
 		return respuesta;
 	}
 	//Para realizar esta peticion se pide el id del Boleto para podelo buscar en la BD
@@ -83,11 +83,11 @@ public class Endpoint {
 		respuesta.setIdBoleto("IdBoleto:"+"[IdBoleto]");
 		respuesta.setOrigen("Origen:" + "[Origen]");
 		respuesta.setDestino("Destino"+"[Destion]");
-		respuesta.setFecha("Fecha"+"[Fecha]");
-		respuesta.setHora("Hora:"+"[Hora]");
-		respuesta.setPrecio("Precio:"+"[Precio]");
+		respuesta.setFecha(null);
+		respuesta.setHora(null);
+		respuesta.setPrecio(0);
 		respuesta.setNomPasajero("Pasajero:"+"[NomPasajero]");
-		respuesta.setAsiento("Asiento:"+"[Asiento]");
+		respuesta.setAsiento(0);
 		return respuesta;
 	}
 	//Para la cancelacion del boleto solo se requiere el id del boleto y automaticamente se eliminara dicho boleto y se realizaran
