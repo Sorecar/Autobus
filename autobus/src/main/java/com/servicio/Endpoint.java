@@ -21,8 +21,6 @@ import com.servicio.autobus.VerBoletoResponse;
 
 @org.springframework.ws.server.endpoint.annotation.Endpoint
 public class Endpoint {
-	//Para la peticion de consultar viajes se requiere un origen, destino y una fecha
-	//Como respuesta se devolvera el id de los viajes, hora y su precio
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "ConsultarViajeRequest")
 	@ResponsePayload
 	public ConsultarViajeResponse getConsultarViaje(@RequestPayload ConsultarViajeRequest peticion) {
@@ -35,18 +33,13 @@ public class Endpoint {
 		respuesta.setPrecio(0);
 		return respuesta;
 	}
-	//Al seleeccionar un viaje se realiza una peticion donde manda el idViaje
-	//Como respuesta tendremos los asientos disponibles en dicho viaje
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "SeleccionarViajeRequest")
 	@ResponsePayload
 	public SeleccionarViajeResponse getSeleccionarViaje(@RequestPayload SeleccionarViajeRequest peticion) {
 		SeleccionarViajeResponse respuesta = new SeleccionarViajeResponse();
-		respuesta.setAsientosDisponibles(0); //Se regresara de la base de datos el numero de asientos disponibles del viaje
+		respuesta.setAsientosDisponibles(0);
 		return respuesta;
 	}
-	//Al seleccionar el asiento, tambien se debe de asignar un nombre al pasajero
-	//Como respuesta tendremos un boleto como tal con todos los elementos de un boleto como son:IdBoleto, Origen, Destino 
-	//Fecha, Hora, Precio, Nombre del pasajero y el asiento seleccionado anteriormente
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "SeleccionarAsientoRequest")
 	@ResponsePayload
 	public SeleccionarAsientoResponse getSeleccionarAsiento(@RequestPayload SeleccionarAsientoRequest peticion) {
@@ -61,8 +54,6 @@ public class Endpoint {
 		respuesta.setAsiento(0);
 		return respuesta;
 	}
-	//Para realizar esta peticion se pide el id del Boleto para podelo buscar en la BD
-	//como respuesta tendremos todos los elementos de un boleto
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "VerBoletoRequest")
 	@ResponsePayload
 	public VerBoletoResponse getVerBoleto (@RequestPayload VerBoletoRequest peticion){
