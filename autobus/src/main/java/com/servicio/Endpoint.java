@@ -1,5 +1,7 @@
 package com.servicio;
 
+import Controlador.ViajeController;
+import Modelo.Viaje;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
@@ -16,21 +18,32 @@ import com.servicio.autobus.SeleccionarViajeRequest;
 import com.servicio.autobus.SeleccionarViajeResponse;
 import com.servicio.autobus.VerBoletoRequest;
 import com.servicio.autobus.VerBoletoResponse;
+import java.util.ArrayList;
 
 
 
 @org.springframework.ws.server.endpoint.annotation.Endpoint
 public class Endpoint {
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "ConsultarViajeRequest")
+	
 	@ResponsePayload
 	public ConsultarViajeResponse getConsultarViaje(@RequestPayload ConsultarViajeRequest peticion) {
-		ConsultarViajeResponse respuesta = new ConsultarViajeResponse();
-		respuesta.setIdViaje("idViaje: "+ "[idViaje]");
-		respuesta.setOrigen(peticion.getOrigen());
-		respuesta.setDestino(peticion.getDestino());
-		respuesta.setFecha(peticion.getFecha());
-		respuesta.setHora(null);
-		respuesta.setPrecio(0);
+		ConsultarViajeResponse respuesta = new ConsultarViajeResponse();	
+		
+                ViajeController cv = new ViajeController();
+                if(peticion.getOrigen()==null && peticion.getDestino()==null && peticion.getFecha()==null){
+                    respuesta.setMensaje("Error en la peticion, datos invalidos");
+                }
+               
+                
+                
+		respuesta.setIdViaje(respuesta.getIdViaje());
+		respuesta.setOrigen(respuesta.getOrigen());
+		respuesta.setDestino(respuesta.getDestino());
+		respuesta.setFecha(respuesta.getFecha());
+		respuesta.setHora(respuesta.getHora());
+		respuesta.setPrecio(respuesta.getPrecio());
+		
 		return respuesta;
 	}
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "SeleccionarViajeRequest")

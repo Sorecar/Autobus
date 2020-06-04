@@ -9,7 +9,7 @@
 			<sequence>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="date"/>
+				<element name="fecha" type="string"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -19,9 +19,9 @@
 				<element name="idViaje" type="string"/>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="date"/>
-				<element name="hora" type="time"/>
-				<element name="precio" type="int"/>
+				<element name="fecha" type="string"/>
+				<element name="hora" type="string"/>
+				<element name="precio" type="double"/>
 			</sequence>
 		</complexType>
 	</element>
@@ -53,8 +53,8 @@
 				<element name="idBoleto" type="string"/>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="date"/>
-				<element name="hora" type="time"/>
+				<element name="fecha" type="string"/>
+				<element name="hora" type="string"/>
 				<element name="precio" type="int"/>
 				<element name="nomPasajero" type="string"/>
 				<element name="asiento" type="int"/>
@@ -74,8 +74,8 @@
 				<element name="idBoleto" type="string"/>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="date"/>
-				<element name="hora" type="time"/>
+				<element name="fecha" type="string"/>
+				<element name="hora" type="string"/>
 				<element name="precio" type="int"/>
 				<element name="nomPasajero" type="string"/>
 				<element name="asiento" type="int"/>
@@ -97,8 +97,8 @@
 				<element name="idBoleto" type="string"/>
 				<element name="origen" type="string"/>
 				<element name="destino" type="string"/>
-				<element name="fecha" type="date"/>
-				<element name="hora" type="time"/>
+				<element name="fecha" type="string"/>
+				<element name="hora" type="string"/>
 				<element name="precio" type="int"/>
 				<element name="nomPasajero" type="string"/>
 				<element name="asiento" type="int"/>

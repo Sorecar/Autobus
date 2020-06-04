@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.04.07 a las 05:47:55 PM CDT 
+// Generado el: 2020.05.08 a las 05:08:40 PM CDT 
 //
 
 
@@ -12,9 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -29,7 +27,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence>
  *         &lt;element name="origen" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="destino" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}date"/>
+ *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -52,8 +50,7 @@ public class ConsultarViajeRequest {
     @XmlElement(required = true)
     protected String destino;
     @XmlElement(required = true)
-    @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar fecha;
+    protected String fecha;
 
     /**
      * Obtiene el valor de la propiedad origen.
@@ -108,10 +105,10 @@ public class ConsultarViajeRequest {
      * 
      * @return
      *     possible object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public XMLGregorianCalendar getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -120,10 +117,10 @@ public class ConsultarViajeRequest {
      * 
      * @param value
      *     allowed object is
-     *     {@link XMLGregorianCalendar }
+     *     {@link String }
      *     
      */
-    public void setFecha(XMLGregorianCalendar value) {
+    public void setFecha(String value) {
         this.fecha = value;
     }
 
