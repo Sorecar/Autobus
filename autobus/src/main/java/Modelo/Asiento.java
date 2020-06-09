@@ -2,35 +2,41 @@ package Modelo;
 
 public class Asiento {
 
-    private String pasajero;
-    private int numAsiento;
+    private int idAsiento;
+    private String idViaje;
+    private int estatus;
 
     public Asiento() {
     }
+    
+	public Asiento(int idAsiento, String idViaje, int estatus) {
+		this.idAsiento = idAsiento;
+		this.idViaje = idViaje;
+		this.estatus = estatus;
+	}
 
-    public Asiento(String pasajero, int numAsiento) {
-        this.pasajero = pasajero;
-        this.numAsiento = numAsiento;
-    }
+	public int getIdAsiento() {
+		return idAsiento;
+	}
 
-    public String getPasajero() {
-        return pasajero;
-    }
+	public void setIdAsiento(int idAsiento) {
+		this.idAsiento = idAsiento;
+	}
 
-    public void setPasajero(String pasajero) {
-        this.pasajero = pasajero;
-    }
+	public String getIdViaje() {
+		return idViaje;
+	}
 
-    public int getNumAsiento() {
-        return numAsiento;
-    }
+	public void setIdViaje(String idViaje) {
+		this.idViaje = idViaje;
+	}
 
-    public void setNumAsiento(int numAsiento) {
-        this.numAsiento = numAsiento;
-    }
+	public int getEstatus() {
+		return estatus;
+	}
 
-    @Override
-    public String toString() {
-        return "AsientoDAO{" + "pasajero=" + pasajero + ", numAsiento=" + numAsiento + '}';
-    }
+	public void setEstatus(int estatus) {
+		this.estatus = estatus;
+	}
+    
 }

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.08 a las 05:08:40 PM CDT 
+// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
 //
 
 
@@ -37,14 +37,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ConsultarViajeRequest }
-     * 
-     */
-    public ConsultarViajeRequest createConsultarViajeRequest() {
-        return new ConsultarViajeRequest();
-    }
-
-    /**
      * Create an instance of {@link ConsultarViajeResponse }
      * 
      */
@@ -58,6 +50,46 @@ public class ObjectFactory {
      */
     public VerBoletoResponse createVerBoletoResponse() {
         return new VerBoletoResponse();
+    }
+
+    /**
+     * Create an instance of {@link SeleccionarViajeResponse }
+     * 
+     */
+    public SeleccionarViajeResponse createSeleccionarViajeResponse() {
+        return new SeleccionarViajeResponse();
+    }
+
+    /**
+     * Create an instance of {@link SeleccionarAsientoResponse }
+     * 
+     */
+    public SeleccionarAsientoResponse createSeleccionarAsientoResponse() {
+        return new SeleccionarAsientoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarViajeRequest }
+     * 
+     */
+    public ConsultarViajeRequest createConsultarViajeRequest() {
+        return new ConsultarViajeRequest();
+    }
+
+    /**
+     * Create an instance of {@link ConsultarViajeResponse.Viaje }
+     * 
+     */
+    public ConsultarViajeResponse.Viaje createConsultarViajeResponseViaje() {
+        return new ConsultarViajeResponse.Viaje();
+    }
+
+    /**
+     * Create an instance of {@link VerBoletoResponse.Boleto }
+     * 
+     */
+    public VerBoletoResponse.Boleto createVerBoletoResponseBoleto() {
+        return new VerBoletoResponse.Boleto();
     }
 
     /**
@@ -77,11 +109,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SeleccionarViajeResponse }
+     * Create an instance of {@link SeleccionarViajeResponse.AsientosDisponibles }
      * 
      */
-    public SeleccionarViajeResponse createSeleccionarViajeResponse() {
-        return new SeleccionarViajeResponse();
+    public SeleccionarViajeResponse.AsientosDisponibles createSeleccionarViajeResponseAsientosDisponibles() {
+        return new SeleccionarViajeResponse.AsientosDisponibles();
     }
 
     /**
@@ -109,11 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SeleccionarAsientoResponse }
+     * Create an instance of {@link SeleccionarAsientoResponse.Boleto }
      * 
      */
-    public SeleccionarAsientoResponse createSeleccionarAsientoResponse() {
-        return new SeleccionarAsientoResponse();
+    public SeleccionarAsientoResponse.Boleto createSeleccionarAsientoResponseBoleto() {
+        return new SeleccionarAsientoResponse.Boleto();
     }
 
     /**

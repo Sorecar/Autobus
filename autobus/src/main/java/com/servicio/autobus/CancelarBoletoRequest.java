@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.08 a las 05:08:40 PM CDT 
+// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
 //
 
 
@@ -10,7 +10,6 @@ package com.servicio.autobus;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +24,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -36,36 +36,45 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idBoleto"
+    "idBoleto",
+    "asiento"
 })
 @XmlRootElement(name = "CancelarBoletoRequest")
 public class CancelarBoletoRequest {
 
-    @XmlElement(required = true)
-    protected String idBoleto;
+    protected int idBoleto;
+    protected int asiento;
 
     /**
      * Obtiene el valor de la propiedad idBoleto.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getIdBoleto() {
+    public int getIdBoleto() {
         return idBoleto;
     }
 
     /**
      * Define el valor de la propiedad idBoleto.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setIdBoleto(String value) {
+    public void setIdBoleto(int value) {
         this.idBoleto = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad asiento.
+     * 
+     */
+    public int getAsiento() {
+        return asiento;
+    }
+
+    /**
+     * Define el valor de la propiedad asiento.
+     * 
+     */
+    public void setAsiento(int value) {
+        this.asiento = value;
     }
 
 }

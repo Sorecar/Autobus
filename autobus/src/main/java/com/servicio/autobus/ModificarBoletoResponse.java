@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.08 a las 05:08:40 PM CDT 
+// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
 //
 
 
@@ -25,14 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="origen" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="destino" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="fecha" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="nomPasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -43,207 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "idBoleto",
-    "origen",
-    "destino",
-    "fecha",
-    "hora",
-    "precio",
-    "nomPasajero",
-    "asiento"
+    "mensaje"
 })
 @XmlRootElement(name = "ModificarBoletoResponse")
 public class ModificarBoletoResponse {
 
     @XmlElement(required = true)
-    protected String idBoleto;
-    @XmlElement(required = true)
-    protected String origen;
-    @XmlElement(required = true)
-    protected String destino;
-    @XmlElement(required = true)
-    protected String fecha;
-    @XmlElement(required = true)
-    protected String hora;
-    protected int precio;
-    @XmlElement(required = true)
-    protected String nomPasajero;
-    protected int asiento;
+    protected String mensaje;
 
     /**
-     * Obtiene el valor de la propiedad idBoleto.
+     * Obtiene el valor de la propiedad mensaje.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getIdBoleto() {
-        return idBoleto;
+    public String getMensaje() {
+        return mensaje;
     }
 
     /**
-     * Define el valor de la propiedad idBoleto.
+     * Define el valor de la propiedad mensaje.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setIdBoleto(String value) {
-        this.idBoleto = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad origen.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getOrigen() {
-        return origen;
-    }
-
-    /**
-     * Define el valor de la propiedad origen.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setOrigen(String value) {
-        this.origen = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad destino.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getDestino() {
-        return destino;
-    }
-
-    /**
-     * Define el valor de la propiedad destino.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setDestino(String value) {
-        this.destino = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad fecha.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getFecha() {
-        return fecha;
-    }
-
-    /**
-     * Define el valor de la propiedad fecha.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setFecha(String value) {
-        this.fecha = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad hora.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getHora() {
-        return hora;
-    }
-
-    /**
-     * Define el valor de la propiedad hora.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setHora(String value) {
-        this.hora = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad precio.
-     * 
-     */
-    public int getPrecio() {
-        return precio;
-    }
-
-    /**
-     * Define el valor de la propiedad precio.
-     * 
-     */
-    public void setPrecio(int value) {
-        this.precio = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nomPasajero.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getNomPasajero() {
-        return nomPasajero;
-    }
-
-    /**
-     * Define el valor de la propiedad nomPasajero.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setNomPasajero(String value) {
-        this.nomPasajero = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad asiento.
-     * 
-     */
-    public int getAsiento() {
-        return asiento;
-    }
-
-    /**
-     * Define el valor de la propiedad asiento.
-     * 
-     */
-    public void setAsiento(int value) {
-        this.asiento = value;
+    public void setMensaje(String value) {
+        this.mensaje = value;
     }
 
 }

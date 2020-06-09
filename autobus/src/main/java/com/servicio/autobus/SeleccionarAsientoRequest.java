@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.05.08 a las 05:08:40 PM CDT 
+// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
 //
 
 
@@ -25,8 +25,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="nomPasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="idasiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="pasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,54 +38,81 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "asiento",
-    "nomPasajero"
+    "idViaje",
+    "idasiento",
+    "pasajero"
 })
 @XmlRootElement(name = "SeleccionarAsientoRequest")
 public class SeleccionarAsientoRequest {
 
-    protected int asiento;
     @XmlElement(required = true)
-    protected String nomPasajero;
+    protected String idViaje;
+    protected int idasiento;
+    @XmlElement(required = true)
+    protected String pasajero;
 
     /**
-     * Obtiene el valor de la propiedad asiento.
-     * 
-     */
-    public int getAsiento() {
-        return asiento;
-    }
-
-    /**
-     * Define el valor de la propiedad asiento.
-     * 
-     */
-    public void setAsiento(int value) {
-        this.asiento = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad nomPasajero.
+     * Obtiene el valor de la propiedad idViaje.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getNomPasajero() {
-        return nomPasajero;
+    public String getIdViaje() {
+        return idViaje;
     }
 
     /**
-     * Define el valor de la propiedad nomPasajero.
+     * Define el valor de la propiedad idViaje.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setNomPasajero(String value) {
-        this.nomPasajero = value;
+    public void setIdViaje(String value) {
+        this.idViaje = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idasiento.
+     * 
+     */
+    public int getIdasiento() {
+        return idasiento;
+    }
+
+    /**
+     * Define el valor de la propiedad idasiento.
+     * 
+     */
+    public void setIdasiento(int value) {
+        this.idasiento = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad pasajero.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPasajero() {
+        return pasajero;
+    }
+
+    /**
+     * Define el valor de la propiedad pasajero.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPasajero(String value) {
+        this.pasajero = value;
     }
 
 }

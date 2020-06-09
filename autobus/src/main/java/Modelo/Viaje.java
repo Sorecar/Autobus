@@ -75,6 +75,6 @@ public class Viaje {
 
     @Override
     public String toString() {
-        return "ViajeDAO{" + "conexion=" + conexion + ", idViaje=" + idViaje + ", Origen=" + Origen + ", Destino=" + Destino + ", Fecha=" + Fecha + ", Hora=" + Hora + ", Precio=" + Precio + '}';
+        return "Viaje{" + "conexion=" + conexion + ", idViaje=" + idViaje + ", Origen=" + Origen + ", Destino=" + Destino + ", Fecha=" + Fecha + ", Hora=" + Hora + ", Precio=" + Precio + '}';
     }
 }

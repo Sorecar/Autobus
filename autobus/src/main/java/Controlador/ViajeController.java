@@ -64,37 +64,7 @@ public class ViajeController {
         }
         return encontrados;
     }
-
-    //Busca todos los viajes que estan de un origen y destino
-    public ArrayList<Viaje> consultaViaje(String origen, String destino) {
-        ArrayList<Viaje> encontrados = new ArrayList<Viaje>();
-        try {
-            ResultSet rs = conexion.getConexion().createStatement().executeQuery("SELECT * FROM Viajes WHERE origen=" + destino + " and destino=" + destino);
-            while (rs.next()) {
-                encontrados.add(new Viaje(rs.getString("idviaje"), rs.getString("origen"), rs.getString("destino"), rs.getString("Fecha"),
-                        rs.getString("Hora"), rs.getInt("Precio")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return encontrados;
-    }
-
-    //Buscara todos los viajes que estan disponibles de acuerdo a un origen
-    public ArrayList<Viaje> consultaViaje(String origen) {
-        ArrayList<Viaje> encontrados = new ArrayList<Viaje>();
-        try {
-            ResultSet rs = conexion.getConexion().createStatement().executeQuery("SELECT * FROM Viajes WHERE origen=" + origen);
-            while (rs.next()) {
-                encontrados.add(new Viaje(rs.getString("idviaje"), rs.getString("origen"), rs.getString("destino"), rs.getString("Fecha"),
-                        rs.getString("Hora"), rs.getInt("Precio")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return encontrados;
-    }
-
+    
     public String getAutobus(String idviaje) {
         String idautobus="";
         ResultSet rs;
