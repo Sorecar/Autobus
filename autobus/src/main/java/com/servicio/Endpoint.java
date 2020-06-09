@@ -133,7 +133,6 @@ public class Endpoint {
 			respuesta.setMensaje("Error en la modificacion del boleto");
 			return respuesta;
 		}
-
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "CancelarBoletoRequest")
