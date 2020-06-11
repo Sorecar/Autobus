@@ -5,8 +5,8 @@ public class Boleto {
 	private int idBoleto;
 	private String origen;
 	private String destino;
-	private String hora;
 	private String fecha;
+	private String hora;
 	private int precio;
 	private String pasajero;
 	private int asiento;
@@ -14,13 +14,14 @@ public class Boleto {
 	public Boleto() {
 	}
 
-	public Boleto(int idBoleto, String origen, String destino, String hora, String fecha, int precio, String pasajero,
+	public Boleto(int idBoleto, String origen, String destino, String fecha, String hora, int precio, String pasajero,
 			int asiento) {
+		super();
 		this.idBoleto = idBoleto;
 		this.origen = origen;
 		this.destino = destino;
-		this.hora = hora;
 		this.fecha = fecha;
+		this.hora = hora;
 		this.precio = precio;
 		this.pasajero = pasajero;
 		this.asiento = asiento;

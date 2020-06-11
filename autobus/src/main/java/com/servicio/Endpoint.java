@@ -39,8 +39,9 @@ public class Endpoint {
 		if (li.size() != 0) {
 			for (Viaje v : li) {
 				ConsultarViajeResponse.Viaje temp = new ConsultarViajeResponse.Viaje();
-				temp.setHora(v.getHora());
-				temp.setPrecio(v.getPrecio());
+				temp.setIdViaje("ID: " + v.getIdViaje());
+				temp.setHora("Hora: " + v.getHora());
+				temp.setPrecio("Precio: " + v.getPrecio());
 				lr.add(temp);
 			}
 			respuesta.getViaje().addAll(lr);
@@ -64,9 +65,10 @@ public class Endpoint {
 		if (li.size() != 0) {
 			for (Asiento a : li) {
 				SeleccionarViajeResponse.AsientosDisponibles temp = new SeleccionarViajeResponse.AsientosDisponibles();
-				temp.setIdAsiento(a.getIdViaje());
+				temp.setIdAsiento("# " + a.getAsiento());
 				lr.add(temp);
 			}
+			respuesta.setIdViaje(peticion.getIdViaje());
 			respuesta.getAsientosDisponibles().addAll(lr);
 			return respuesta;
 		} else {
@@ -81,16 +83,18 @@ public class Endpoint {
 		SeleccionarAsientoResponse respuesta = new SeleccionarAsientoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boleto boleto = bc.crearBoleto(peticion.getIdViaje(), peticion.getIdasiento(), peticion.getPasajero());
-
+		Boleto boleto = bc.crearBoleto(peticion.getIdViaje(),peticion.getAsiento(), peticion.getPasajero());
+		
 		if (boleto != null) {
-			respuesta.getBoleto().setIdBoleto(boleto.getIdBoleto());
-			respuesta.getBoleto().setOrigen(boleto.getDestino());
-			respuesta.getBoleto().setFecha(boleto.getFecha());
-			respuesta.getBoleto().setHora(boleto.getHora());
-			respuesta.getBoleto().setPrecio(boleto.getPrecio());
-			respuesta.getBoleto().setPasajero(boleto.getPasajero());
-			respuesta.getBoleto().setAsiento(boleto.getAsiento());
+			
+			respuesta.setIdBoleto(boleto.getIdBoleto());
+			respuesta.setOrigen(boleto.getDestino());
+			respuesta.setFecha(boleto.getFecha());
+			respuesta.setHora(boleto.getHora());
+			respuesta.setPrecio(boleto.getPrecio());
+			respuesta.setPasajero(boleto.getPasajero());
+			respuesta.setAsiento(boleto.getAsiento());
+			respuesta.setMensaje("Feliz Viaje");
 			return respuesta;
 		} else {
 			respuesta.setMensaje("Error en la compra");
@@ -105,17 +109,20 @@ public class Endpoint {
 
 		BoletoController bc = new BoletoController();
 		Boleto boleto = bc.verBoleto(peticion.getIdBoleto());
+		
 		if (boleto != null) {
-			respuesta.getBoleto().setIdBoleto(boleto.getIdBoleto());
-			respuesta.getBoleto().setOrigen(boleto.getDestino());
-			respuesta.getBoleto().setFecha(boleto.getFecha());
-			respuesta.getBoleto().setHora(boleto.getHora());
-			respuesta.getBoleto().setPrecio(boleto.getPrecio());
-			respuesta.getBoleto().setPasajero(boleto.getPasajero());
-			respuesta.getBoleto().setAsiento(boleto.getAsiento());
+			
+			respuesta.setIdBoleto(boleto.getIdBoleto());
+			respuesta.setOrigen(boleto.getDestino());
+			respuesta.setFecha(boleto.getFecha());
+			respuesta.setHora(boleto.getHora());
+			respuesta.setPrecio(boleto.getPrecio());
+			respuesta.setPasajero(boleto.getPasajero());
+			respuesta.setAsiento(boleto.getAsiento());
+			respuesta.setMensaje("Feliz Viaje");
 			return respuesta;
 		} else {
-			respuesta.setMensaje("Error, El boleto no existe");
+			respuesta.setMensaje("Error en la consulta");
 			return respuesta;
 		}
 	}

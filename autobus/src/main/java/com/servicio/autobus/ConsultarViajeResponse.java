@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
+// Generado el: 2020.06.10 a las 09:55:35 PM CDT 
 //
 
 
@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
  *                 &lt;sequence>
  *                   &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}double"/>
+ *                   &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
@@ -129,7 +129,7 @@ public class ConsultarViajeResponse {
      *       &lt;sequence>
      *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}double"/>
+     *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -152,7 +152,8 @@ public class ConsultarViajeResponse {
         protected String idViaje;
         @XmlElement(required = true)
         protected String hora;
-        protected double precio;
+        @XmlElement(required = true)
+        protected String precio;
         @XmlElement(required = true)
         protected String mensaje;
 
@@ -207,16 +208,24 @@ public class ConsultarViajeResponse {
         /**
          * Obtiene el valor de la propiedad precio.
          * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
-        public double getPrecio() {
+        public String getPrecio() {
             return precio;
         }
 
         /**
          * Define el valor de la propiedad precio.
          * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
-        public void setPrecio(double value) {
+        public void setPrecio(String value) {
             this.precio = value;
         }
 

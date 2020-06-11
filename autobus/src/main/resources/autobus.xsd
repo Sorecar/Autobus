@@ -21,7 +21,7 @@
 						<sequence>
 							<element name="idViaje" type="string" />
 							<element name="hora" type="string" />
-							<element name="precio" type="double" />
+							<element name="precio" type="string" />
 							<element name="mensaje" type="string" />
 						</sequence>
 					</complexType>
@@ -40,6 +40,7 @@
 	<element name="SeleccionarViajeResponse">
 		<complexType>
 			<sequence>
+				<element name="idViaje" type="string" />
 				<element name="asientosDisponibles" maxOccurs="unbounded">
 					<complexType>
 						<sequence>
@@ -55,7 +56,7 @@
 		<complexType>
 			<sequence>
 				<element name="idViaje" type="string" />
-				<element name="idasiento" type="int" />
+				<element name="asiento" type="int" />
 				<element name="pasajero" type="string" />
 			</sequence>
 		</complexType>
@@ -63,20 +64,14 @@
 	<element name="SeleccionarAsientoResponse">
 		<complexType>
 			<sequence>
-				<element name="Boleto" >
-					<complexType>
-						<sequence>
-							<element name="idBoleto" type="int" />
-							<element name="origen" type="string" />
-							<element name="destino" type="string" />
-							<element name="fecha" type="string" />
-							<element name="hora" type="string" />
-							<element name="precio" type="int" />
-							<element name="pasajero" type="string" />
-							<element name="asiento" type="int" />
-						</sequence>
-					</complexType>
-				</element>
+				<element name="idBoleto" type="int" />
+				<element name="origen" type="string" />
+				<element name="destino" type="string" />
+				<element name="fecha" type="string" />
+				<element name="hora" type="string" />
+				<element name="precio" type="int" />
+				<element name="pasajero" type="string" />
+				<element name="asiento" type="int" />
 				<element name="mensaje" type="string" />
 			</sequence>
 		</complexType>
@@ -91,20 +86,14 @@
 	<element name="VerBoletoResponse">
 		<complexType>
 			<sequence>
-				<element name="Boleto" >
-					<complexType>
-						<sequence>
-							<element name="idBoleto" type="int" />
-							<element name="origen" type="string" />
-							<element name="destino" type="string" />
-							<element name="fecha" type="string" />
-							<element name="hora" type="string" />
-							<element name="precio" type="int" />
-							<element name="pasajero" type="string" />
-							<element name="asiento" type="int" />
-						</sequence>
-					</complexType>
-				</element>
+				<element name="idBoleto" type="int" />
+				<element name="origen" type="string" />
+				<element name="destino" type="string" />
+				<element name="fecha" type="string" />
+				<element name="hora" type="string" />
+				<element name="precio" type="int" />
+				<element name="pasajero" type="string" />
+				<element name="asiento" type="int" />
 				<element name="mensaje" type="string" />
 			</sequence>
 		</complexType>

@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
+// Generado el: 2020.06.10 a las 09:55:35 PM CDT 
 //
 
 
@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="asientosDisponibles" maxOccurs="unbounded">
  *           &lt;complexType>
  *             &lt;complexContent>
@@ -49,6 +50,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
+    "idViaje",
     "asientosDisponibles",
     "mensaje"
 })
@@ -56,9 +58,35 @@ import javax.xml.bind.annotation.XmlType;
 public class SeleccionarViajeResponse {
 
     @XmlElement(required = true)
+    protected String idViaje;
+    @XmlElement(required = true)
     protected List<SeleccionarViajeResponse.AsientosDisponibles> asientosDisponibles;
     @XmlElement(required = true)
     protected String mensaje;
+
+    /**
+     * Obtiene el valor de la propiedad idViaje.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getIdViaje() {
+        return idViaje;
+    }
+
+    /**
+     * Define el valor de la propiedad idViaje.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setIdViaje(String value) {
+        this.idViaje = value;
+    }
 
     /**
      * Gets the value of the asientosDisponibles property.

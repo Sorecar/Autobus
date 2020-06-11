@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.09 a las 04:03:08 PM CDT 
+// Generado el: 2020.06.10 a las 09:55:35 PM CDT 
 //
 
 
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="idasiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="pasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idViaje",
-    "idasiento",
+    "asiento",
     "pasajero"
 })
 @XmlRootElement(name = "SeleccionarAsientoRequest")
@@ -47,7 +47,7 @@ public class SeleccionarAsientoRequest {
 
     @XmlElement(required = true)
     protected String idViaje;
-    protected int idasiento;
+    protected int asiento;
     @XmlElement(required = true)
     protected String pasajero;
 
@@ -76,19 +76,19 @@ public class SeleccionarAsientoRequest {
     }
 
     /**
-     * Obtiene el valor de la propiedad idasiento.
+     * Obtiene el valor de la propiedad asiento.
      * 
      */
-    public int getIdasiento() {
-        return idasiento;
+    public int getAsiento() {
+        return asiento;
     }
 
     /**
-     * Define el valor de la propiedad idasiento.
+     * Define el valor de la propiedad asiento.
      * 
      */
-    public void setIdasiento(int value) {
-        this.idasiento = value;
+    public void setAsiento(int value) {
+        this.asiento = value;
     }
 
     /**
