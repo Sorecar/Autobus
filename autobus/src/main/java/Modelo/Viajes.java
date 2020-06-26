@@ -2,7 +2,7 @@ package Modelo;
 
 import Conexion.ConexionBD;
 
-public class Viaje {
+public class Viajes {
 
     private ConexionBD conexion;
 
@@ -13,10 +13,10 @@ public class Viaje {
     private String Hora;
     private int Precio;
 
-    public Viaje() {
+    public Viajes() {
     }
 
-    public Viaje(String idViaje, String Origen, String Destino, String Fecha, String Hora, int Precio) {
+    public Viajes(String idViaje, String Origen, String Destino, String Fecha, String Hora, int Precio) {
         this.idViaje = idViaje;
         this.Origen = Origen;
         this.Destino = Destino;

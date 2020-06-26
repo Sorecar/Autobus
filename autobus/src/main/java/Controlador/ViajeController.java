@@ -1,7 +1,7 @@
 package Controlador;
 
 import Conexion.ConexionBD;
-import Modelo.Viaje;
+import Modelo.Viajes;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -52,14 +52,14 @@ public class ViajeController {
 	}
 
 	// Busca todos los viajes que estan en un origen, destino y fecha determinada
-	public ArrayList<Viaje> consultaViaje(String origen, String destino, String fecha) {
-		ArrayList<Viaje> encontrados = new ArrayList<Viaje>();
+	public ArrayList<Viajes> consultaViaje(String origen, String destino, String fecha) {
+		ArrayList<Viajes> encontrados = new ArrayList<Viajes>();
 		try {
 			sql = "SELECT * FROM viajes WHERE Origen='" + origen + "' AND Destino='" + destino + "' AND Fecha='" + fecha
 					+ "'";
 			rs = conexion.getConexion().createStatement().executeQuery(sql);
 			while (rs.next()) {
-				encontrados.add(new Viaje(rs.getString("idviaje"), rs.getString("origen"), rs.getString("destino"),
+				encontrados.add(new Viajes(rs.getString("idviaje"), rs.getString("origen"), rs.getString("destino"),
 						rs.getString("Fecha"), rs.getString("Hora"), rs.getInt("Precio")));
 			}
 		} catch (SQLException e) {
@@ -68,8 +68,8 @@ public class ViajeController {
 		return encontrados;
 	}
 
-	public Viaje getDatosViaje(String idViaje) {
-		Viaje viaje = new Viaje();
+	public Viajes getDatosViaje(String idViaje) {
+		Viajes viaje = new Viajes();
 		try {
 			sql = "SELECT * FROM Viajes WHERE idViaje='" + idViaje + "'";
 			rs = conexion.getConexion().createStatement().executeQuery(sql);

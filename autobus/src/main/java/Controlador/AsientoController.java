@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import Conexion.ConexionBD;
-import Modelo.Asiento;
+import Modelo.Asientos;
 
 public class AsientoController {
 	private int idAsiento;
@@ -49,13 +49,13 @@ public class AsientoController {
 		this.estatus = estatus;
 	}
 
-	public ArrayList<Asiento> consultarAsientos(String idViaje) {
-		ArrayList<Asiento> encontrados = new ArrayList<Asiento>();
+	public ArrayList<Asientos> consultarAsientos(String idViaje) {
+		ArrayList<Asientos> encontrados = new ArrayList<Asientos>();
 		try {
 			sql = "SELECT * FROM Asientos WHERE idViaje='" + idViaje + "' AND estatus='1'";
 			ResultSet rs = conexion.getConexion().createStatement().executeQuery(sql);
 			while (rs.next()) {
-				encontrados.add(new Asiento(rs.getInt("idAsiento"),rs.getString("idViaje"),rs.getInt("idBoleto"),rs.getInt("Asiento"),rs.getInt("Estatus")));
+				encontrados.add(new Asientos(rs.getInt("idAsiento"),rs.getString("idViaje"),rs.getInt("idBoleto"),rs.getInt("Asiento"),rs.getInt("Estatus")));
 			}
 			return encontrados;
 		} catch (SQLException e) {

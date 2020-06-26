@@ -3,9 +3,9 @@ package com.servicio;
 import Controlador.AsientoController;
 import Controlador.BoletoController;
 import Controlador.ViajeController;
-import Modelo.Asiento;
-import Modelo.Boleto;
-import Modelo.Viaje;
+import Modelo.Asientos;
+import Modelo.Boletos;
+import Modelo.Viajes;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
@@ -33,24 +33,20 @@ public class Endpoint {
 		ConsultarViajeResponse respuesta = new ConsultarViajeResponse();
 
 		ViajeController vc = new ViajeController();
-		ArrayList<Viaje> li = vc.consultaViaje(peticion.getOrigen(), peticion.getDestino(), peticion.getFecha());
+		ArrayList<Viajes> li = vc.consultaViaje(peticion.getOrigen(), peticion.getDestino(), peticion.getFecha());
 		ArrayList<ConsultarViajeResponse.Viaje> lr = new ArrayList<ConsultarViajeResponse.Viaje>();
 
 		if (li.size() != 0) {
-			for (Viaje v : li) {
+			for (Viajes v : li) {
 				ConsultarViajeResponse.Viaje temp = new ConsultarViajeResponse.Viaje();
-				temp.setIdViaje("ID: " + v.getIdViaje());
-				temp.setHora("Hora: " + v.getHora());
-				temp.setPrecio("Precio: " + v.getPrecio());
+				temp.setIdViaje(v.getIdViaje());
+				temp.setHora(v.getHora());
+				temp.setPrecio(v.getPrecio());
 				lr.add(temp);
 			}
 			respuesta.getViaje().addAll(lr);
-			return respuesta;
-		} else {
-			respuesta.setMensaje("Error en la busqueda de viajes");
-			return respuesta;
 		}
-
+		return respuesta;
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "SeleccionarViajeRequest")
@@ -59,22 +55,19 @@ public class Endpoint {
 		SeleccionarViajeResponse respuesta = new SeleccionarViajeResponse();
 
 		AsientoController ac = new AsientoController();
-		ArrayList<Asiento> li = ac.consultarAsientos(peticion.getIdViaje());
-		ArrayList<SeleccionarViajeResponse.AsientosDisponibles> lr = new ArrayList<SeleccionarViajeResponse.AsientosDisponibles>();
+		ArrayList<Asientos> li = ac.consultarAsientos(peticion.getIdViaje());
+		ArrayList<SeleccionarViajeResponse.Asiento> lr = new ArrayList<SeleccionarViajeResponse.Asiento>();
 
 		if (li.size() != 0) {
-			for (Asiento a : li) {
-				SeleccionarViajeResponse.AsientosDisponibles temp = new SeleccionarViajeResponse.AsientosDisponibles();
-				temp.setIdAsiento("# " + a.getAsiento());
+			for (Asientos a : li) {
+				SeleccionarViajeResponse.Asiento temp = new SeleccionarViajeResponse.Asiento();
+				temp.setIdAsiento(a.getAsiento());
 				lr.add(temp);
 			}
 			respuesta.setIdViaje(peticion.getIdViaje());
-			respuesta.getAsientosDisponibles().addAll(lr);
-			return respuesta;
-		} else {
-			respuesta.setMensaje("Error en la busqueda de asientos");
-			return respuesta;
+			respuesta.getAsiento().addAll(lr);
 		}
+		return respuesta;
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "SeleccionarAsientoRequest")
@@ -83,23 +76,22 @@ public class Endpoint {
 		SeleccionarAsientoResponse respuesta = new SeleccionarAsientoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boleto boleto = bc.crearBoleto(peticion.getIdViaje(),peticion.getAsiento(), peticion.getPasajero());
-		
+		Boletos boleto = bc.crearBoleto(peticion.getIdViaje(), peticion.getAsiento(), peticion.getPasajero());
+		SeleccionarAsientoResponse.Boleto bol = new SeleccionarAsientoResponse.Boleto();
 		if (boleto != null) {
-			
-			respuesta.setIdBoleto(boleto.getIdBoleto());
-			respuesta.setOrigen(boleto.getDestino());
-			respuesta.setFecha(boleto.getFecha());
-			respuesta.setHora(boleto.getHora());
-			respuesta.setPrecio(boleto.getPrecio());
-			respuesta.setPasajero(boleto.getPasajero());
-			respuesta.setAsiento(boleto.getAsiento());
-			respuesta.setMensaje("Feliz Viaje");
-			return respuesta;
-		} else {
-			respuesta.setMensaje("Error en la compra");
-			return respuesta;
+			bol.setIdBoleto(boleto.getIdBoleto());
+			bol.setOrigen(boleto.getOrigen());
+			bol.setDestino(boleto.getDestino());
+			bol.setFecha(boleto.getFecha());
+			bol.setHora(boleto.getHora());
+			bol.setPrecio(boleto.getPrecio());
+			bol.setPasajero(boleto.getPasajero());
+			bol.setAsiento(boleto.getAsiento());
+			respuesta.setBoleto(bol);
+		}else {
+			respuesta.setBoleto(null);
 		}
+		return respuesta;
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "VerBoletoRequest")
@@ -108,23 +100,22 @@ public class Endpoint {
 		VerBoletoResponse respuesta = new VerBoletoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boleto boleto = bc.verBoleto(peticion.getIdBoleto());
-		
+		Boletos boleto = bc.verBoleto(peticion.getIdBoleto());
+		VerBoletoResponse.Boleto bol = new VerBoletoResponse.Boleto();
 		if (boleto != null) {
-			
-			respuesta.setIdBoleto(boleto.getIdBoleto());
-			respuesta.setOrigen(boleto.getDestino());
-			respuesta.setFecha(boleto.getFecha());
-			respuesta.setHora(boleto.getHora());
-			respuesta.setPrecio(boleto.getPrecio());
-			respuesta.setPasajero(boleto.getPasajero());
-			respuesta.setAsiento(boleto.getAsiento());
-			respuesta.setMensaje("Feliz Viaje");
-			return respuesta;
-		} else {
-			respuesta.setMensaje("Error en la consulta");
-			return respuesta;
+			bol.setIdBoleto(boleto.getIdBoleto());
+			bol.setOrigen(boleto.getOrigen());
+			bol.setDestino(boleto.getDestino());
+			bol.setFecha(boleto.getFecha());
+			bol.setHora(boleto.getHora());
+			bol.setPrecio(boleto.getPrecio());
+			bol.setPasajero(boleto.getPasajero());
+			bol.setAsiento(boleto.getAsiento());
+			respuesta.setBoleto(bol);
+		}else {
+			respuesta.setBoleto(null);
 		}
+		return respuesta;
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "ModificarBoletoRequest")
@@ -134,12 +125,11 @@ public class Endpoint {
 
 		BoletoController bc = new BoletoController();
 		if (bc.modificarBoleto(peticion.getIdBoleto(), peticion.getAsiento(), peticion.getPasajero())) {
-			respuesta.setMensaje("Boleto modificado con exito");
-			return respuesta;
+			respuesta.setChekout(true);
 		} else {
-			respuesta.setMensaje("Error en la modificacion del boleto");
-			return respuesta;
+			respuesta.setChekout(false);
 		}
+		return respuesta;
 	}
 
 	@PayloadRoot(namespace = "http://www.servicio.com/autobus", localPart = "CancelarBoletoRequest")
@@ -149,11 +139,10 @@ public class Endpoint {
 
 		BoletoController bc = new BoletoController();
 		if (bc.cancelarBoleto(peticion.getIdBoleto(), peticion.getAsiento())) {
-			respuesta.setMensaje("Boleto cancelado con exito");
-			return respuesta;
+			respuesta.setCheckout(true);
 		} else {
-			respuesta.setMensaje("Error en la cancelacion del boleto");
-			return respuesta;
+			respuesta.setCheckout(false);
 		}
+		return respuesta;
 	}
 }

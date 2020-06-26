@@ -4,8 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Conexion.ConexionBD;
-import Modelo.Boleto;
-import Modelo.Viaje;
+import Modelo.Boletos;
+import Modelo.Viajes;
 
 public class BoletoController {
 	private int idBoleto;
@@ -103,13 +103,13 @@ public class BoletoController {
 		this.asiento = asiento;
 	}
 
-	public Boleto verBoleto(int idBoleto) {
-		Boleto boleto;
+	public Boletos verBoleto(int idBoleto) {
+		Boletos boleto;
 		try {
 			sql = "SELECT * FROM Boletos WHERE idboleto='" + idBoleto + "'";
 			rs = conexion.getConexion().createStatement().executeQuery(sql);
 			if (rs.next()) {
-				boleto = new Boleto(rs.getInt("idBoleto"), rs.getString("Origen"), rs.getString("Destino"),
+				boleto = new Boletos(rs.getInt("idBoleto"), rs.getString("Origen"), rs.getString("Destino"),
 						rs.getString("Fecha"), rs.getString("Hora"), rs.getInt("Precio"), rs.getString("Pasajero"),
 						rs.getInt("Asiento"));
 			} else {
@@ -122,34 +122,32 @@ public class BoletoController {
 		}
 	}
 
-	public Boleto crearBoleto(String idViaje, int asiento, String pasajero) {
-		Boleto boleto;
+	public Boletos crearBoleto(String idViaje, int asiento, String pasajero) {
+		Boletos boleto = null;
 		try {
 			// consulta Viajes para recuperar valores del origen, destino, fecha, hor y
 			// precio
 			ViajeController vc = new ViajeController();
-			Viaje viaje = vc.getDatosViaje(idViaje);
+			Viajes viaje = vc.getDatosViaje(idViaje);
+			if (viaje.getOrigen() != null && viaje.getDestino() != null) {
+				// Creo nuevo boleto en la base de datos
+				sql = "INSERT INTO Boletos(idBoleto,Origen,Destino,Fecha,Hora,Precio,Pasajero,Asiento) VALUES(NULL,'"
+						+ viaje.getOrigen() + "','" + viaje.getDestino() + "','" + viaje.getFecha() + "','"
+						+ viaje.getHora() + "','" + viaje.getPrecio() + "','" + pasajero + "','" + asiento + "')";
+				conexion.getConexion().createStatement().execute(sql);
 
-			// Creo nuevo boleto en la base de datos
-			sql = "INSERT INTO Boletos(idBoleto,Origen,Destino,Fecha,Hora,Precio,Pasajero,Asiento) VALUES(NULL,'"
-					+ viaje.getOrigen() + "','" + viaje.getDestino() + "','" + viaje.getFecha() + "','"
-					+ viaje.getHora() + "','" + viaje.getPrecio() + "','" + pasajero + "','" + asiento + "')";
-			conexion.getConexion().createStatement().execute(sql);
-
-			// consulta a bd Boletos para recuperar el boleto nuevo
-			sql = "SELECT * FROM boletos WHERE Pasajero='" + pasajero + "' AND Asiento='" + asiento + "'";
-			rs = conexion.getConexion().createStatement().executeQuery(sql);
-			if (rs.next()) {
-				boleto = new Boleto(rs.getInt("idBoleto"), rs.getString("Origen"), rs.getString("Destino"),
-						rs.getString("Fecha"), rs.getString("Hora"), rs.getInt("Precio"), rs.getString("Pasajero"),
-						rs.getInt("Asiento"));
-			} else {
-				boleto = null;
-				System.out.println("No se agrego nada boleto a regresar");
+				// consulta a bd Boletos para recuperar el boleto nuevo
+				sql = "SELECT * FROM boletos WHERE Pasajero='" + pasajero + "' AND Asiento='" + asiento + "'";
+				rs = conexion.getConexion().createStatement().executeQuery(sql);
+				if (rs.next()) {
+					boleto = new Boletos(rs.getInt("idBoleto"), rs.getString("Origen"), rs.getString("Destino"),
+							rs.getString("Fecha"), rs.getString("Hora"), rs.getInt("Precio"), rs.getString("Pasajero"),
+							rs.getInt("Asiento"));
+				}
+				// actualizacion de datos de los asientos
+				AsientoController ac = new AsientoController();
+				ac.ocuparAsiento(viaje.getIdViaje(), boleto.getIdBoleto(), boleto.getAsiento());
 			}
-			// actualizacion de datos de los asientos
-			AsientoController ac = new AsientoController();
-			ac.ocuparAsiento(viaje.getIdViaje(), boleto.getIdBoleto(), boleto.getAsiento());
 			return boleto;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -158,11 +156,19 @@ public class BoletoController {
 	}
 
 	public boolean modificarBoleto(int idBoleto, int asiento, String pasajero) {
+		boolean bandera = false;
 		try {
-			sql = "UPDATE Boletos SET pasajero = '" + pasajero + "' WHERE idBoleto='" + idBoleto + "' AND Asiento='"
-					+ asiento + "'";
-			conexion.getConexion().createStatement().execute(sql);
-			return true;
+			sql = "SELECT * From Boletos WHERE idBoleto='" + idBoleto + "' AND Asiento='"+asiento+"'";
+			rs = conexion.getConexion().createStatement().executeQuery(sql);
+			if (rs.next()) {
+				sql = "UPDATE Boletos SET pasajero = '" + pasajero + "' WHERE idBoleto='" + idBoleto + "' AND Asiento='"
+						+ asiento + "'";
+				conexion.getConexion().createStatement().execute(sql);
+				bandera = true;
+			} else {
+				bandera = false;
+			}
+			return bandera;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;
@@ -170,13 +176,21 @@ public class BoletoController {
 	}
 
 	public boolean cancelarBoleto(int idBoleto, int asiento) {
+		boolean bandera = false;
 		try {
-			sql = "DELETE FROM Boletos WHERE idBoleto='" + idBoleto + "' AND Asiento='" + asiento + "'";
-			conexion.getConexion().createStatement().execute(sql);
-			//Desocupamos el asiento que tenia 
-			AsientoController a = new AsientoController();
-			a.desocuparAsiento(idBoleto, asiento);
-			return true;
+			sql = "SELECT * From Boletos WHERE idBoleto='" + idBoleto + "' AND Asiento='"+asiento+"'";
+			rs = conexion.getConexion().createStatement().executeQuery(sql);
+			if (rs.next()) {
+				sql = "DELETE FROM Boletos WHERE idBoleto='" + idBoleto + "' AND Asiento='" + asiento + "'";
+				conexion.getConexion().createStatement().execute(sql);
+				// Desocupamos el asiento que tenia
+				AsientoController a = new AsientoController();
+				a.desocuparAsiento(idBoleto, asiento);
+				bandera = true;
+			} else {
+				bandera = false;
+			}
+			return bandera;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return false;

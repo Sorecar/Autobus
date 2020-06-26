@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.10 a las 09:55:35 PM CDT 
+// Generado el: 2020.06.25 a las 07:29:45 PM CDT 
 //
 
 
@@ -34,14 +34,12 @@ import javax.xml.bind.annotation.XmlType;
  *                 &lt;sequence>
  *                   &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *                   &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *                   &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -52,16 +50,13 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "viaje",
-    "mensaje"
+    "viaje"
 })
 @XmlRootElement(name = "ConsultarViajeResponse")
 public class ConsultarViajeResponse {
 
     @XmlElement(required = true)
     protected List<ConsultarViajeResponse.Viaje> viaje;
-    @XmlElement(required = true)
-    protected String mensaje;
 
     /**
      * Gets the value of the viaje property.
@@ -92,30 +87,6 @@ public class ConsultarViajeResponse {
         return this.viaje;
     }
 
-    /**
-     * Obtiene el valor de la propiedad mensaje.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    /**
-     * Define el valor de la propiedad mensaje.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setMensaje(String value) {
-        this.mensaje = value;
-    }
-
 
     /**
      * <p>Clase Java para anonymous complex type.
@@ -129,8 +100,7 @@ public class ConsultarViajeResponse {
      *       &lt;sequence>
      *         &lt;element name="idViaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
      *         &lt;element name="hora" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="mensaje" type="{http://www.w3.org/2001/XMLSchema}string"/>
+     *         &lt;element name="precio" type="{http://www.w3.org/2001/XMLSchema}int"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>
@@ -143,8 +113,7 @@ public class ConsultarViajeResponse {
     @XmlType(name = "", propOrder = {
         "idViaje",
         "hora",
-        "precio",
-        "mensaje"
+        "precio"
     })
     public static class Viaje {
 
@@ -152,10 +121,7 @@ public class ConsultarViajeResponse {
         protected String idViaje;
         @XmlElement(required = true)
         protected String hora;
-        @XmlElement(required = true)
-        protected String precio;
-        @XmlElement(required = true)
-        protected String mensaje;
+        protected int precio;
 
         /**
          * Obtiene el valor de la propiedad idViaje.
@@ -208,49 +174,17 @@ public class ConsultarViajeResponse {
         /**
          * Obtiene el valor de la propiedad precio.
          * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
          */
-        public String getPrecio() {
+        public int getPrecio() {
             return precio;
         }
 
         /**
          * Define el valor de la propiedad precio.
          * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
          */
-        public void setPrecio(String value) {
+        public void setPrecio(int value) {
             this.precio = value;
-        }
-
-        /**
-         * Obtiene el valor de la propiedad mensaje.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getMensaje() {
-            return mensaje;
-        }
-
-        /**
-         * Define el valor de la propiedad mensaje.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setMensaje(String value) {
-            this.mensaje = value;
         }
 
     }

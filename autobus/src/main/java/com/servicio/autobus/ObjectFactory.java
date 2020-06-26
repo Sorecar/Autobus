@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.10 a las 09:55:35 PM CDT 
+// Generado el: 2020.06.25 a las 07:29:45 PM CDT 
 //
 
 
@@ -45,11 +45,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link VerBoletoResponse }
+     * 
+     */
+    public VerBoletoResponse createVerBoletoResponse() {
+        return new VerBoletoResponse();
+    }
+
+    /**
      * Create an instance of {@link SeleccionarViajeResponse }
      * 
      */
     public SeleccionarViajeResponse createSeleccionarViajeResponse() {
         return new SeleccionarViajeResponse();
+    }
+
+    /**
+     * Create an instance of {@link SeleccionarAsientoResponse }
+     * 
+     */
+    public SeleccionarAsientoResponse createSeleccionarAsientoResponse() {
+        return new SeleccionarAsientoResponse();
     }
 
     /**
@@ -69,11 +85,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link VerBoletoResponse }
+     * Create an instance of {@link VerBoletoResponse.Boleto }
      * 
      */
-    public VerBoletoResponse createVerBoletoResponse() {
-        return new VerBoletoResponse();
+    public VerBoletoResponse.Boleto createVerBoletoResponseBoleto() {
+        return new VerBoletoResponse.Boleto();
     }
 
     /**
@@ -93,11 +109,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SeleccionarViajeResponse.AsientosDisponibles }
+     * Create an instance of {@link SeleccionarViajeResponse.Asiento }
      * 
      */
-    public SeleccionarViajeResponse.AsientosDisponibles createSeleccionarViajeResponseAsientosDisponibles() {
-        return new SeleccionarViajeResponse.AsientosDisponibles();
+    public SeleccionarViajeResponse.Asiento createSeleccionarViajeResponseAsiento() {
+        return new SeleccionarViajeResponse.Asiento();
     }
 
     /**
@@ -125,11 +141,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SeleccionarAsientoResponse }
+     * Create an instance of {@link SeleccionarAsientoResponse.Boleto }
      * 
      */
-    public SeleccionarAsientoResponse createSeleccionarAsientoResponse() {
-        return new SeleccionarAsientoResponse();
+    public SeleccionarAsientoResponse.Boleto createSeleccionarAsientoResponseBoleto() {
+        return new SeleccionarAsientoResponse.Boleto();
     }
 
     /**

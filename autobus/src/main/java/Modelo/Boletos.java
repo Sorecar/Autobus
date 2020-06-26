@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Boleto {
+public class Boletos {
 
 	private int idBoleto;
 	private String origen;
@@ -11,10 +11,10 @@ public class Boleto {
 	private String pasajero;
 	private int asiento;
 
-	public Boleto() {
+	public Boletos() {
 	}
 
-	public Boleto(int idBoleto, String origen, String destino, String fecha, String hora, int precio, String pasajero,
+	public Boletos(int idBoleto, String origen, String destino, String fecha, String hora, int precio, String pasajero,
 			int asiento) {
 		super();
 		this.idBoleto = idBoleto;

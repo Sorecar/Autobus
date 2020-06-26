@@ -29,14 +29,14 @@ public class Configuracion extends WsConfigurerAdapter {
 		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
 		servlet.setApplicationContext(applicationContext);
 		servlet.setTransformWsdlLocations(true);
-		return new ServletRegistrationBean(servlet, "/*");
+		return new ServletRegistrationBean(servlet, "/ws/*");
 	}
 
 	@Bean(name = "autobus")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema AutobusSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
 		wsdl11Definition.setPortTypeName("autobusPort");
-		wsdl11Definition.setLocationUri("/autobus");
+		wsdl11Definition.setLocationUri("/ws/autobus");
 		wsdl11Definition.setTargetNamespace("http://www.servicio.com/autobus");
 		wsdl11Definition.setSchema(AutobusSchema);
 		return wsdl11Definition;

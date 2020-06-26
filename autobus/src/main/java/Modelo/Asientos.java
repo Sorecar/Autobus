@@ -1,6 +1,6 @@
 package Modelo;
 
-public class Asiento {
+public class Asientos {
 
 	private int idAsiento;
 	private String idViaje;
@@ -8,10 +8,10 @@ public class Asiento {
 	private int asiento;
 	private int estatus;
 
-	public Asiento() {
+	public Asientos() {
 	}
 
-	public Asiento(int idAsiento, String idViaje, int idboleto, int asiento, int estatus) {
+	public Asientos(int idAsiento, String idViaje, int idboleto, int asiento, int estatus) {
 		super();
 		this.idAsiento = idAsiento;
 		this.idViaje = idViaje;
