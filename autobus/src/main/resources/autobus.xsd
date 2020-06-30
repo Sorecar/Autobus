@@ -55,6 +55,7 @@
 				<element name="idViaje" type="string" />
 				<element name="asiento" type="int" />
 				<element name="pasajero" type="string" />
+				<element name="Cliente" type="string" />
 			</sequence>
 		</complexType>
 	</element>
@@ -82,6 +83,7 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="int" />
+				<element name="Cliente" type="string" />
 			</sequence>
 		</complexType>
 	</element>
@@ -109,8 +111,8 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="int" />
+				<element name="Cliente" type="string" />
 				<element name="pasajero" type="string" />
-				<element name="asiento" type="int" />
 			</sequence>
 		</complexType>
 	</element>
@@ -125,7 +127,7 @@
 		<complexType>
 			<sequence>
 				<element name="idBoleto" type="int" />
-				<element name="asiento" type="int" />
+				<element name="Cliente" type="string" />
 			</sequence>
 		</complexType>
 	</element>

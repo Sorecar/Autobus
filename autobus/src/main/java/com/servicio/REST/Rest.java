@@ -55,11 +55,11 @@ public class Rest {
 		return lr;
 	}
 
-	@GetMapping("/rest/compra/{idviaje}/{asiento}/{pasajero}")
+	@GetMapping("/rest/compra/{idviaje}/{asiento}/{pasajero}/{cliente}")
 	public Boleto SeleccionarAsiento(@PathVariable String idviaje, @PathVariable int asiento,
-			@PathVariable String pasajero) {
+			@PathVariable String pasajero, @PathVariable String cliente) {
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.crearBoleto(idviaje, asiento, pasajero);
+		Boletos boleto = bc.crearBoleto(idviaje, asiento, pasajero, cliente);
 		Boleto bol = new Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());
@@ -76,10 +76,10 @@ public class Rest {
 		return bol;
 	}
 
-	@GetMapping("/rest/boleto/{idboleto}")
-	public Boleto VerBoleto(@PathVariable int idboleto) {
+	@GetMapping("/rest/boleto/{idboleto}/{cliente}")
+	public Boleto VerBoleto(@PathVariable int idboleto, @PathVariable String cliente) {
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.verBoleto(idboleto);
+		Boletos boleto = bc.verBoleto(idboleto, cliente);
 		Boleto bol = new Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());
@@ -96,11 +96,11 @@ public class Rest {
 		return bol;
 	}
 
-	@GetMapping("/rest/modificar/{idboleto}/{asiento}/{pasajero}")
-	public boolean modificarBoleto(@PathVariable int idboleto,@PathVariable int asiento, @PathVariable String pasajero) {
+	@GetMapping("/rest/modificar/{idboleto}/{cliente}/{pasajero}")
+	public boolean modificarBoleto(@PathVariable int idboleto,@PathVariable String cliente, @PathVariable String pasajero) {
 		boolean respuesta = true;
 		BoletoController bc = new BoletoController();
-		if (bc.modificarBoleto(idboleto, asiento, pasajero)) {
+		if (bc.modificarBoleto(idboleto, cliente, pasajero)) {
 			respuesta=true;
 		} else {
 			respuesta=false;
@@ -108,11 +108,11 @@ public class Rest {
 		return respuesta;
 	}
 	
-	@GetMapping("/rest/cancelar/{idboleto}/{asiento}")
-	public boolean cancelarrBoleto(@PathVariable int idboleto,@PathVariable int asiento) {
+	@GetMapping("/rest/cancelar/{idboleto}/{cliente}")
+	public boolean cancelarrBoleto(@PathVariable int idboleto,@PathVariable String cliente) {
 		boolean respuesta = true;
 		BoletoController bc = new BoletoController();
-		if (bc.cancelarBoleto(idboleto, asiento)) {
+		if (bc.cancelarBoleto(idboleto, cliente)) {
 			respuesta=true;
 		} else {
 			respuesta=false;

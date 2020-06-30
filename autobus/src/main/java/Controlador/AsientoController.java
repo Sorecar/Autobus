@@ -75,9 +75,9 @@ public class AsientoController {
 		}
 	}
 
-	public boolean desocuparAsiento(int idBoleto, int asiento) {
+	public boolean desocuparAsiento(int idBoleto) {
 		try {
-			sql = "UPDATE Asientos SET estatus='1', idBoleto=null WHERE idBoleto='" + idBoleto + "' AND Asiento='" + asiento+"'";
+			sql = "UPDATE Asientos SET estatus='1', idBoleto=null WHERE idBoleto='" + idBoleto + "'";
 			conexion.getConexion().createStatement().execute(sql);
 			return true;
 		} catch (SQLException e) {

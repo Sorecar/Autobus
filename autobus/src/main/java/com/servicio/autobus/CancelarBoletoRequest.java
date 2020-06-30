@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.25 a las 07:29:45 PM CDT 
+// Generado el: 2020.06.30 a las 05:50:41 PM CDT 
 //
 
 
@@ -10,6 +10,7 @@ package com.servicio.autobus;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Cliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -37,13 +38,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idBoleto",
-    "asiento"
+    "cliente"
 })
 @XmlRootElement(name = "CancelarBoletoRequest")
 public class CancelarBoletoRequest {
 
     protected int idBoleto;
-    protected int asiento;
+    @XmlElement(name = "Cliente", required = true)
+    protected String cliente;
 
     /**
      * Obtiene el valor de la propiedad idBoleto.
@@ -62,19 +64,27 @@ public class CancelarBoletoRequest {
     }
 
     /**
-     * Obtiene el valor de la propiedad asiento.
+     * Obtiene el valor de la propiedad cliente.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getAsiento() {
-        return asiento;
+    public String getCliente() {
+        return cliente;
     }
 
     /**
-     * Define el valor de la propiedad asiento.
+     * Define el valor de la propiedad cliente.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setAsiento(int value) {
-        this.asiento = value;
+    public void setCliente(String value) {
+        this.cliente = value;
     }
 
 }

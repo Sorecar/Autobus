@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.06.25 a las 07:29:45 PM CDT 
+// Generado el: 2020.06.30 a las 05:50:41 PM CDT 
 //
 
 
@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idBoleto" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="Cliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="pasajero" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="asiento" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -39,16 +39,17 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idBoleto",
-    "pasajero",
-    "asiento"
+    "cliente",
+    "pasajero"
 })
 @XmlRootElement(name = "ModificarBoletoRequest")
 public class ModificarBoletoRequest {
 
     protected int idBoleto;
+    @XmlElement(name = "Cliente", required = true)
+    protected String cliente;
     @XmlElement(required = true)
     protected String pasajero;
-    protected int asiento;
 
     /**
      * Obtiene el valor de la propiedad idBoleto.
@@ -64,6 +65,30 @@ public class ModificarBoletoRequest {
      */
     public void setIdBoleto(int value) {
         this.idBoleto = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad cliente.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCliente() {
+        return cliente;
+    }
+
+    /**
+     * Define el valor de la propiedad cliente.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCliente(String value) {
+        this.cliente = value;
     }
 
     /**
@@ -88,22 +113,6 @@ public class ModificarBoletoRequest {
      */
     public void setPasajero(String value) {
         this.pasajero = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad asiento.
-     * 
-     */
-    public int getAsiento() {
-        return asiento;
-    }
-
-    /**
-     * Define el valor de la propiedad asiento.
-     * 
-     */
-    public void setAsiento(int value) {
-        this.asiento = value;
     }
 
 }

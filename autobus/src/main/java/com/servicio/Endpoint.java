@@ -76,7 +76,7 @@ public class Endpoint {
 		SeleccionarAsientoResponse respuesta = new SeleccionarAsientoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.crearBoleto(peticion.getIdViaje(), peticion.getAsiento(), peticion.getPasajero());
+		Boletos boleto = bc.crearBoleto(peticion.getIdViaje(), peticion.getAsiento(), peticion.getPasajero(), peticion.getCliente());
 		SeleccionarAsientoResponse.Boleto bol = new SeleccionarAsientoResponse.Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());
@@ -100,7 +100,7 @@ public class Endpoint {
 		VerBoletoResponse respuesta = new VerBoletoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.verBoleto(peticion.getIdBoleto());
+		Boletos boleto = bc.verBoleto(peticion.getIdBoleto(), peticion.getCliente());
 		VerBoletoResponse.Boleto bol = new VerBoletoResponse.Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());
@@ -124,7 +124,7 @@ public class Endpoint {
 		ModificarBoletoResponse respuesta = new ModificarBoletoResponse();
 
 		BoletoController bc = new BoletoController();
-		if (bc.modificarBoleto(peticion.getIdBoleto(), peticion.getAsiento(), peticion.getPasajero())) {
+		if (bc.modificarBoleto(peticion.getIdBoleto(),peticion.getCliente(), peticion.getPasajero())) {
 			respuesta.setChekout(true);
 		} else {
 			respuesta.setChekout(false);
@@ -138,7 +138,7 @@ public class Endpoint {
 		CancelarBoletoResponse respuesta = new CancelarBoletoResponse();
 
 		BoletoController bc = new BoletoController();
-		if (bc.cancelarBoleto(peticion.getIdBoleto(), peticion.getAsiento())) {
+		if (bc.cancelarBoleto(peticion.getIdBoleto(), peticion.getCliente())) {
 			respuesta.setCheckout(true);
 		} else {
 			respuesta.setCheckout(false);
