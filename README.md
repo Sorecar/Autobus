@@ -29,8 +29,8 @@ Datos que se regresan:
 | `idViaje` | **String** Identificardor unico del viaje|
 | `origen` | **String** Ciudad de origen|
 | `destino` | **String** Ciudad de destino|
-| `fecha` | **Date** Fecha del Viaje *YYYY-MM-DD* |
-| `hora` | **Time** Hora de salida|
+| `fecha` | **String** Fecha del Viaje *YYYY-MM-DD* |
+| `hora` | **String** Hora de salida|
 | `precio` | **Int** Costo del viaje|
 
 **Ejemplo de petición**
@@ -83,6 +83,7 @@ Datos que recibe:
 | `idViaje` | **String** Identificador unico del viaje |
 | `asiento` | **Int** Número del asiento que se desea ocupar|
 | `nomPasajero` | **String** Nombre del pasajero que va a comprar el boleto|
+| `Cliente` | **String** Correo electronico del cliente que esta en sesion |
 
 
 Datos que se regresan:
@@ -105,8 +106,9 @@ Datos que se regresan:
     <Body>
         <SeleccionarAsientoRequest xmlns="http://www.servicio.com/autobus">
             <idViaje>XLMX001</idViaje>
-            <asiento>10</asiento>
+            <asiento>1</asiento>
             <nomPasajero>Carlos Daniel Rodriguez</nomPasajero>
+            <cliente>sorec_carlos@hotmail.com</Cliente>
         </SeleccionarAsientoRequest>
     </Body>
 </Envelope>
@@ -119,7 +121,7 @@ Datos que recibe:
 
 | Parametros | Descripción |
 | --- | --- |
-| `idBoleto` | **String** Identificador unico del boleto |
+| `Cliente` | **String** Correo electronico del cliente que esta en sesion |
 
 Datos que se regresan:
 
@@ -140,7 +142,7 @@ Datos que se regresan:
 <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
     <Body>
         <VerBoletoRequest xmlns="http://www.servicio.com/autobus">
-            <idBoleto>1</idBoleto>
+            <Cliente>sorec_carlos@hotmail.com</Cliente>
         </VerBoletoRequest>
     </Body>
 </Envelope>
