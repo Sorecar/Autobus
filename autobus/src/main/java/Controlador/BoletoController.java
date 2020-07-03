@@ -113,10 +113,10 @@ public class BoletoController {
 		this.cliente = cliente;
 	}
 	
-	public Boletos verBoleto(int idBoleto, String cliente) {
+	public Boletos verBoleto(String cliente) {
 		Boletos boleto;
 		try {
-			sql = "SELECT * FROM Boletos WHERE idboleto='" + idBoleto + "' AND Cliente='" + cliente + "'";
+			sql = "SELECT * FROM Boletos WHERE Cliente='" + cliente + "'";
 			rs = conexion.getConexion().createStatement().executeQuery(sql);
 			if (rs.next()) {
 				boleto = new Boletos();

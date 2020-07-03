@@ -76,10 +76,10 @@ public class Rest {
 		return bol;
 	}
 
-	@GetMapping("/rest/boleto/{idboleto}/{cliente}")
-	public Boleto VerBoleto(@PathVariable int idboleto, @PathVariable String cliente) {
+	@GetMapping("/rest/boleto/{cliente}")
+	public Boleto VerBoleto(@PathVariable String cliente) {
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.verBoleto(idboleto, cliente);
+		Boletos boleto = bc.verBoleto(cliente);
 		Boleto bol = new Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());

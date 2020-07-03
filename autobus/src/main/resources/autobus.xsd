@@ -82,7 +82,6 @@
 	<element name="VerBoletoRequest">
 		<complexType>
 			<sequence>
-				<element name="idBoleto" type="int" />
 				<element name="Cliente" type="string" />
 			</sequence>
 		</complexType>

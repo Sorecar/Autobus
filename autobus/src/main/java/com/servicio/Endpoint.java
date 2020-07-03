@@ -100,7 +100,7 @@ public class Endpoint {
 		VerBoletoResponse respuesta = new VerBoletoResponse();
 
 		BoletoController bc = new BoletoController();
-		Boletos boleto = bc.verBoleto(peticion.getIdBoleto(), peticion.getCliente());
+		Boletos boleto = bc.verBoleto(peticion.getCliente());
 		VerBoletoResponse.Boleto bol = new VerBoletoResponse.Boleto();
 		if (boleto != null) {
 			bol.setIdBoleto(boleto.getIdBoleto());
